@@ -1,0 +1,9 @@
+server:
+  port: 8010
+spring:
+  application:
+    name: mall-user
+  cloud:
+    nacos:
+      server-addr: http://192.168.88.1:8848
+
