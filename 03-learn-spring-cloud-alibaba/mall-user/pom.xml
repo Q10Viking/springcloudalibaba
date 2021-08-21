@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>mall-common</artifactId>
+    <artifactId>mall-user</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -17,17 +17,18 @@
     </properties>
 
     <dependencies>
+        <!-- 引入公共的common依赖 -->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
+            <groupId>org.hzz</groupId>
+            <artifactId>mall-common</artifactId>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
 
+        <!--   引入nacos-服务发现与注册     -->
         <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.10</version>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
         </dependency>
     </dependencies>
-
 
 </project>

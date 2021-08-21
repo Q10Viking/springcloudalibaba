@@ -1,0 +1,8 @@
+server:
+  port: 8020
+spring:
+  application:
+    name: mall-order
+  cloud:
+    nacos:
+      server-addr: http://192.168.88.1:8848
