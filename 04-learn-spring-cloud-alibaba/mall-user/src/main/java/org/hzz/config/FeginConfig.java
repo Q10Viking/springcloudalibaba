@@ -22,8 +22,8 @@ public class FeginConfig {
     }
 
     // 自定义Feign的拦截器
-    @Bean
-    public MyFeignAuthRequestInterceptor myFeignAuthRequestInterceptor(){
-        return new MyFeignAuthRequestInterceptor();
-    }
+//    @Bean
+//    public MyFeignAuthRequestInterceptor myFeignAuthRequestInterceptor(){
+//        return new MyFeignAuthRequestInterceptor();
+//    }
 }
