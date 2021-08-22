@@ -1,7 +1,7 @@
 package org.hzz.controller;
 
 import lombok.extern.slf4j.Slf4j;
-import org.hzz.service.OrderFeignService;
+import org.hzz.feign.OrderFeignService;
 import org.hzz.utils.R;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

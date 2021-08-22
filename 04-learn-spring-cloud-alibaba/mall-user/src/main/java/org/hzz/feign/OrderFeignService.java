@@ -1,4 +1,4 @@
-package org.hzz.service;
+package org.hzz.feign;
 
 import org.hzz.utils.R;
 import org.springframework.cloud.openfeign.FeignClient;

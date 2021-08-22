@@ -17,3 +17,13 @@ ribbon:
     # 配置mall-user使用ribbon饥饿加载，多个使用逗号分隔
     clients: mall-order
     enabled: true  # 开启ribbon饥饿加载
+
+logging:
+  level:
+    #指定具体的包，设置打印的日志级别
+    org.hzz.feign: debug
+feign:
+  client:
+    config:
+      mall-order:   # 对应的微服务
+        logger-level: FULL
