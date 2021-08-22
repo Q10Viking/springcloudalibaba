@@ -1,0 +1,32 @@
+server:
+  port: 8010
+spring:
+  application:
+    name: mall-user
+  cloud:
+    nacos:
+      server-addr: http://192.168.88.1:8848
+      discovery:
+        cluster-name: BJ
+
+mall-order:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.alibaba.cloud.nacos.ribbon.NacosRule
+ribbon:
+  eager-load:
+    # 配置mall-user使用ribbon饥饿加载，多个使用逗号分隔
+    clients: mall-order
+    enabled: true  # 开启ribbon饥饿加载
+
+logging:
+  level:
+    #指定具体的包，设置打印的日志级别
+    org.hzz.feign: debug
+feign:
+  client:
+    config:
+      mall-order:   # 对应的微服务
+        logger-level: FULL
+        requestInterceptors[0]: org.hzz.interceptor.MyFeignAuthRequestInterceptor
+  okhttp:
+    enabled: true  # 允许使用Okhttp

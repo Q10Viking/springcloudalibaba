@@ -1,0 +1,6 @@
+server:
+  port: 8009
+common:
+  name: hzz-IDEA
+  age: 20
+

@@ -1,0 +1,27 @@
+
+spring:
+  application:
+    name: nacos-config
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      config:
+        server-addr: http://192.168.88.1:8848
+        file-extension: yml    # 代表使用配置中心中使用配置的文件格式
+        namespace: 08655487-b7a7-43b3-9ddb-94874568c3b2  # 命名空间
+        shared-configs:     # 共享配置，list集合
+          - data-id: share-config01.yml   #自定义 Data Id 的配置
+            group: REFRESH_GROUP
+            refresh: true
+          - data-id: share-config02.yml
+            group: REFRESH_GROUP
+            refresh: true
+        extension-configs:   # 扩展配置，list集合
+          - data-id: ext-config01.yml
+            group: REFRESH_GROUP
+            refresh: true
+          - data-id: ext-config02.yml
+            group: REFRESH_GROUP
+            refresh: true
+
