@@ -28,3 +28,5 @@ feign:
       mall-order:   # 对应的微服务
         logger-level: FULL
         requestInterceptors[0]: org.hzz.interceptor.MyFeignAuthRequestInterceptor
+  okhttp:
+    enabled: true  # 允许使用Okhttp

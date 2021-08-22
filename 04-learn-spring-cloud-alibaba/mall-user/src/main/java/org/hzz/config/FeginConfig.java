@@ -1,6 +1,7 @@
 package org.hzz.config;
 
 import feign.Logger;
+import feign.Request;
 import feign.auth.BasicAuthRequestInterceptor;
 import org.hzz.interceptor.MyFeignAuthRequestInterceptor;
 import org.springframework.context.annotation.Bean;
@@ -26,4 +27,10 @@ public class FeginConfig {
 //    public MyFeignAuthRequestInterceptor myFeignAuthRequestInterceptor(){
 //        return new MyFeignAuthRequestInterceptor();
 //    }
+
+    // 超时配置
+    // @Bean
+    public Request.Options options(){
+        return new Request.Options(2000,1000);
+    }
 }
