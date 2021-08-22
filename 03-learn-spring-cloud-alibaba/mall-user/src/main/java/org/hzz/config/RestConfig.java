@@ -2,6 +2,7 @@ package org.hzz.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.client.RestTemplateBuilder;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
 import org.springframework.cloud.client.loadbalancer.LoadBalancerInterceptor;
 import org.springframework.context.annotation.Bean;
@@ -15,7 +16,7 @@ public class RestConfig {
     private LoadBalancerClient loadBalancerClient;
 
     @Bean
-//    @LoadBalanced
+    @LoadBalanced
     public RestTemplate restTemplate(RestTemplateBuilder restTemplateBuilder){
 
         return restTemplateBuilder
