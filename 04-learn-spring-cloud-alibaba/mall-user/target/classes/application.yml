@@ -26,4 +26,4 @@ feign:
   client:
     config:
       mall-order:   # 对应的微服务
-        logger-level: HEADERS
+        logger-level: FULL
