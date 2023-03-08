@@ -19,3 +19,5 @@ spring:
           uri: lb://mall-user  #lb 整合负载均衡器ribbon,loadbalancer
           predicates:
             - Path=/user/**   # 断言，路径相匹配的进行路由
+            # Header匹配  请求中带有请求头名为 x-request-id，其值与 \d+ 正则表达式匹配
+            - Header=X-Request-Id,\d+
