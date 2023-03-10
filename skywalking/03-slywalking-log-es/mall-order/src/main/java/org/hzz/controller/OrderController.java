@@ -23,7 +23,7 @@ public class OrderController {
     @GetMapping("/findOrderByUserId/{id}")
     public R findOrderByUserId(@PathVariable("id") Integer id){
 
-//        int i = 3/0;
+        int i = 3/0;
 
         log.info("current mall-order service port: {}",port);
         return R.ok("maller-order"+ " port: "+ port + " id: "+id);
