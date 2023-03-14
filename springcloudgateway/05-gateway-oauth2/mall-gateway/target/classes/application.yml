@@ -19,3 +19,8 @@ spring:
           uri: lb://mall-user  #lb 整合负载均衡器ribbon,loadbalancer
           predicates:
             - Path=/user/**   # 断言，路径相匹配的进行路由
+
+        - id: auth_route
+          uri: lb://auth-server
+          predicates:
+            - Path=/oauth/**,/user/**

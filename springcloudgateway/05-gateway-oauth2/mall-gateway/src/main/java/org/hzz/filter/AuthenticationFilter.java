@@ -11,9 +11,7 @@ import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.*;
 import org.springframework.stereotype.Component;
-import org.springframework.util.LinkedMultiValueMap;
-import org.springframework.util.MultiValueMap;
-import org.springframework.util.StringUtils;
+import org.springframework.util.*;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
@@ -36,7 +34,7 @@ public class AuthenticationFilter implements GlobalFilter, InitializingBean {
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
         String path = exchange.getRequest().getURI().getPath();
         // 不需要认证的url
-        if(shouldSkipUrl.contains(path)){
+        if(shouldSkip(path)){
             log.info("不需要认证的"+path);
             return chain.filter(exchange);
         }
@@ -79,5 +77,16 @@ public class AuthenticationFilter implements GlobalFilter, InitializingBean {
         shouldSkipUrl.add("/oauth/token");
         shouldSkipUrl.add("/oauth/check_token");
         shouldSkipUrl.add("/user/getCurrentUser");
+    }
+
+    private boolean shouldSkip(String requestPath){
+        PathMatcher pathMatcher = new AntPathMatcher();
+        for (String path:
+                shouldSkipUrl) {
+            if(pathMatcher.match(path,requestPath)){
+                return true;
+            }
+        }
+        return false;
     }
 }
