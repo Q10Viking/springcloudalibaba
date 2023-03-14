@@ -1,0 +1,19 @@
+server:
+  port: 8010
+spring:
+  application:
+    name: mall-user
+  cloud:
+    nacos:
+      server-addr: http://192.168.135.1:8848
+      discovery:
+        cluster-name: BJ
+
+mall-order:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.alibaba.cloud.nacos.ribbon.NacosRule
+ribbon:
+  eager-load:
+    # 配置mall-user使用ribbon饥饿加载，多个使用逗号分隔
+    clients: mall-order
+    enabled: true  # 开启ribbon饥饿加载
