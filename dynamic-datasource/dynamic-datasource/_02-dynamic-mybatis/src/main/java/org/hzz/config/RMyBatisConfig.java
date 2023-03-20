@@ -7,6 +7,8 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import org.springframework.transaction.support.TransactionTemplate;
 
 import javax.sql.DataSource;
 
@@ -25,5 +27,17 @@ public class RMyBatisConfig {
         SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
         sqlSessionFactoryBean.setDataSource(dataSource2());
         return sqlSessionFactoryBean.getObject();
+    }
+
+    @Bean
+    public DataSourceTransactionManager rTransactionManager(){
+        DataSourceTransactionManager dataSourceTransactionManager = new DataSourceTransactionManager();
+        dataSourceTransactionManager.setDataSource(dataSource2());
+        return dataSourceTransactionManager;
+    }
+
+    @Bean
+    public TransactionTemplate rTransactionTemplate(){
+        return new TransactionTemplate(rTransactionManager());
     }
 }

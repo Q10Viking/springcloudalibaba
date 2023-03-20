@@ -1,12 +1,14 @@
-package org.hzz.mapper.R;
+package org.hzz.mapper;
 
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import org.hzz.entity.Friend;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-public interface RFriendMapper {
+@Repository
+public interface FriendMapper {
     @Select("SELECT * FROM friend")
     List<Friend> list();
 

@@ -7,6 +7,9 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import org.springframework.transaction.support.TransactionTemplate;
 
 import javax.sql.DataSource;
 
@@ -25,4 +28,21 @@ public class WMyBatisConfig {
         sqlSessionFactoryBean.setDataSource(dataSource1());
         return sqlSessionFactoryBean.getObject();
     }
+
+
+    @Bean
+    @Primary
+    public DataSourceTransactionManager wTransactionManager(){
+        DataSourceTransactionManager dataSourceTransactionManager = new DataSourceTransactionManager();
+        dataSourceTransactionManager.setDataSource(dataSource1());
+        return dataSourceTransactionManager;
+    }
+
+
+    @Bean
+    public TransactionTemplate wTransactionTemplate(){
+        return new TransactionTemplate(wTransactionManager());
+    }
+
+
 }

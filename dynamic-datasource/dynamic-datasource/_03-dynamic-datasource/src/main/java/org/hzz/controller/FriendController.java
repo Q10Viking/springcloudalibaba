@@ -30,13 +30,4 @@ public class FriendController {
         return "data added";
     }
 
-
-    @GetMapping("saveAll")
-    public String saveAll(){
-        Friend friend = new Friend();
-        friend.setName("jingmo=all");
-        friendService.saveAll(friend);
-        return "data all";
-    }
-
 }

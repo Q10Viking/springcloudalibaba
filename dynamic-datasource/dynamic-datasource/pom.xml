@@ -16,6 +16,7 @@
     <modules>
         <module>_01-dynamic-datasource</module>
         <module>_02-dynamic-mybatis</module>
+        <module>_03-dynamic-datasource</module>
     </modules>
 
     <properties>
