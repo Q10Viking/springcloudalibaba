@@ -15,6 +15,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>_01-dynamic-datasource</module>
+        <module>_02-dynamic-mybatis</module>
     </modules>
 
     <properties>
