@@ -1,0 +1,7 @@
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:mysql://192.168.135.130:3306/lock?useUnicode=true
+    username: root
+    password: Root.123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
