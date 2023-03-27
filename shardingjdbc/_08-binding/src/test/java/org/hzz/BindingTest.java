@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.List;
+
 @SpringBootTest
 @RunWith(SpringRunner.class)
 public class BindingTest {
@@ -43,4 +45,11 @@ public class BindingTest {
         }
     }
 
+    @Test
+    public void queryUserStatus(){
+        List<User> users = userMapper.queryUserStatus();
+        for(User user : users){
+            System.out.println(user);
+        }
+    }
 }
